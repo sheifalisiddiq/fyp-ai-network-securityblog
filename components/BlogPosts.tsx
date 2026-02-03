@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { BlogPost, Comment } from '../types';
-import CommentSection from './CommentSection';
+import { BlogPost, Comment } from '../types.ts';
+import CommentSection from './CommentSection.tsx';
 
 const INITIAL_POSTS: BlogPost[] = [
   {

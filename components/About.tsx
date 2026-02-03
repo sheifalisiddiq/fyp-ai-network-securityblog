@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavTab } from '../types';
+import { NavTab } from '../types.ts';
 
 interface AboutProps {
   onNavigate: (tab: NavTab) => void;

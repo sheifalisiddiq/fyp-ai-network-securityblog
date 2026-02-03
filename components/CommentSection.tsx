@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
-import { Comment } from '../types';
+import { Comment } from '../types.ts';
 
 interface CommentSectionProps {
   comments: Comment[];

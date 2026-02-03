@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { NavTab } from '../types';
+import { NavTab } from '../types.ts';
 
 interface NavbarProps {
   activeTab: NavTab;

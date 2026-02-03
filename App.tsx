@@ -1,13 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { NavTab } from './types';
-import Navbar from './components/Navbar';
-import About from './components/About';
-import BlogPosts from './components/BlogPosts';
-import MeetingLog from './components/MeetingLog';
-import Contact from './components/Contact';
-import Gallery from './components/Gallery';
-import Footer from './components/Footer';
+import { NavTab } from './types.ts';
+import Navbar from './components/Navbar.tsx';
+import About from './components/About.tsx';
+import BlogPosts from './components/BlogPosts.tsx';
+import MeetingLog from './components/MeetingLog.tsx';
+import Contact from './components/Contact.tsx';
+import Gallery from './components/Gallery.tsx';
+import Footer from './components/Footer.tsx';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<NavTab>(NavTab.ABOUT);

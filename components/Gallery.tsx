@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { GalleryItem } from '../types';
+import { GalleryItem } from '../types.ts';
 
 const GALLERY: GalleryItem[] = [
   {

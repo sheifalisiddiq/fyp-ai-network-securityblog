@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MeetingLogEntry } from '../types';
+import { MeetingLogEntry } from '../types.ts';
 
 const LOGS: MeetingLogEntry[] = [
   {
