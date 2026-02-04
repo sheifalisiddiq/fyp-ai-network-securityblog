@@ -8,7 +8,7 @@ const GALLERY: GalleryItem[] = [
     id: '0',
     title: 'Research & Lab Analysis',
     description: 'Active development phase at Middlesex University Dubai, conducting real-time network traffic analysis and model training.',
-    imageUrl: './fyp-image.jpg',
+    imageUrl: '/fyp-image.jpg',
     category: 'Environment'
   },
   {

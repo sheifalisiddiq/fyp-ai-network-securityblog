@@ -19,13 +19,13 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           className="relative group"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-500"></div>
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center overflow-hidden">
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-slate-900 border-2 border-slate-800 flex items-center justify-center overflow-hidden shadow-2xl">
             <img 
-              src="./fyp-image.jpg" 
+              src="/fyp-image.jpg" 
               alt="Sheif Ali Siddiq" 
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out transform group-hover:scale-105"
               onError={(e) => {
-                // Fallback if image isn't available in local context
+                // Fallback to a high-quality engineering lab placeholder if file is missing
                 (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop";
               }}
             />
@@ -121,7 +121,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Stats/Highlight Grid */}
+      {/* Stats Section */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           { 
@@ -162,7 +162,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
         ))}
       </section>
 
-      {/* Footer Skills Tag Cloud */}
+      {/* Skills Tag Cloud */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
