@@ -9,18 +9,18 @@ const INITIAL_POSTS: BlogPost[] = [
     id: '1',
     week: 1,
     date: 'September 12, 2024',
-    title: 'Week 1: Project Initiation',
-    concept: 'Title: AI-Based Network Monitoring and Threat Detection System. This project involves developing a host-based security application that monitors real-time network traffic. By utilizing machine learning algorithms, the system aims to distinguish between normal user activity and malicious patterns—such as DDoS attacks or unauthorized port scanning—providing an intelligent layer of protection for the device.',
-    rationale: 'I chose this project because traditional firewalls and signature-based detection systems are often blind to "zero-day" attacks that don\'t match known patterns. As someone passionate about cybersecurity, I wanted to create a solution that uses behavioral analysis to identify threats. This is significant because it shifts the focus from reactive security to proactive, intelligent monitoring, which is critical for securing modern IoT and enterprise environments.',
+    title: 'Week 1: Project Initiation & Architecture 🚀',
+    concept: 'This project focuses on building an intelligent, host-based security system that monitors network traffic at the packet level. Instead of relying on predefined rules or known threat signatures, the system analyzes live traffic patterns to understand what "normal" behavior looks like for a user or device. By doing this, it can detect abnormal and potentially malicious activity such as DDoS attempts, port scanning, or other stealthy network attacks in real time.',
+    rationale: 'Traditional firewalls and intrusion detection systems depend heavily on signature-based detection, meaning they can only stop attacks they already know about. This project is based on the belief that the future of cybersecurity lies in behavioral intelligence rather than static identification. By learning traffic patterns over time, the system can identify suspicious deviations and respond proactively, which is essential for modern IoT and enterprise environments.',
     details: {
-      significance: 'The project addresses the growing complexity of network attacks by automating the detection process, reducing the need for constant human oversight.',
+      significance: 'This system aims to automate the threat-hunting process by continuously analyzing network behavior without human supervision. It reduces reliance on manual monitoring and enables 24/7 protection with minimal intervention, demonstrating how AI can create adaptive and proactive defense mechanisms.',
       approach: {
-        capture: 'Data Capture: Using Python and libraries like Scapy to intercept and analyze network packets.',
-        ai: 'AI Integration: Implementing classification models (like Random Forest) to evaluate traffic metadata such as packet rate and protocol types.',
-        ui: 'User Interface: A centralized dashboard to visualize network health and provide clear alerts when suspicious behavior is detected.'
+        capture: 'Packet Interception: Live network traffic will be captured using Python and the Scapy library, extracting metadata such as protocol type, packet size, and timing information from packet headers.',
+        ai: 'Intelligent Analysis: Machine learning models like Random Forest or SVM will be trained on features including inter-arrival time, protocol distribution, flow duration, and entropy to distinguish normal behavior from threats.',
+        ui: 'Actionable Dashboard: A lightweight web-based dashboard will visualize network status in real time, highlighting anomalies, displaying traffic statistics, and providing alerts for faster response.'
       }
     },
-    reflections: 'My goal for this week was to establish the project scope and finalize my supervisor, Mr. Roshan Renji. Moving forward, the primary challenge will be ensuring the AI model remains lightweight enough to run on a host device while maintaining high accuracy in threat classification.',
+    reflections: 'This week marked an important milestone: finalizing the project scope and confirming Mr. Roshan Renji as my project supervisor. The primary challenge identified so far is balancing detection accuracy with system performance, ensuring the engine remains lightweight while effectively identifying threats.',
     tags: ['Python', 'Scapy', 'ML', 'Security', 'Zero-Day'],
     comments: []
   }
