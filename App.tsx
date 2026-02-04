@@ -8,19 +8,52 @@ import MeetingLog from './components/MeetingLog.tsx';
 import Contact from './components/Contact.tsx';
 import Gallery from './components/Gallery.tsx';
 import Footer from './components/Footer.tsx';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<NavTab>(NavTab.ABOUT);
+  const [prevTab, setPrevTab] = useState<NavTab>(NavTab.ABOUT);
 
   // Smooth scroll to top on tab change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activeTab]);
 
+  const handleTabChange = (tab: NavTab) => {
+    setPrevTab(activeTab);
+    setActiveTab(tab);
+  };
+
+  const getTabIndex = (tab: NavTab) => Object.values(NavTab).indexOf(tab);
+  const direction = getTabIndex(activeTab) > getTabIndex(prevTab) ? 1 : -1;
+
+  const pageVariants = {
+    initial: (direction: number) => ({
+      x: direction > 0 ? 500 : -500,
+      opacity: 0,
+    }),
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        x: { type: "spring", stiffness: 60, damping: 20, mass: 1 },
+        opacity: { duration: 0.8, ease: "easeOut" }
+      }
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -500 : 500,
+      opacity: 0,
+      transition: {
+        x: { type: "spring", stiffness: 60, damping: 20 },
+        opacity: { duration: 0.6, ease: "easeIn" }
+      }
+    })
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case NavTab.ABOUT:
-        return <About onNavigate={(tab) => setActiveTab(tab)} />;
+        return <About onNavigate={handleTabChange} />;
       case NavTab.BLOG:
         return <BlogPosts />;
       case NavTab.LOG:
@@ -30,18 +63,28 @@ const App: React.FC = () => {
       case NavTab.CONTACT:
         return <Contact />;
       default:
-        return <About onNavigate={(tab) => setActiveTab(tab)} />;
+        return <About onNavigate={handleTabChange} />;
     }
   };
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col selection:bg-cyan-500/30">
-      <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
+      <Navbar activeTab={activeTab} onTabChange={handleTabChange} />
       
-      <main className="flex-grow pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-          {renderContent()}
-        </div>
+      <main className="flex-grow pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full overflow-hidden">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={activeTab}
+            custom={direction}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="w-full"
+          >
+            {renderContent()}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       <Footer />

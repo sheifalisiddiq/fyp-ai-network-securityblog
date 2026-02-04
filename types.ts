@@ -22,7 +22,15 @@ export interface BlogPost {
   title: string;
   concept: string;
   rationale: string;
-  details: string[];
+  details: {
+    significance: string;
+    approach: {
+      capture: string;
+      ai: string;
+      ui: string;
+    };
+  };
+  reflections: string;
   tags: string[];
   comments?: Comment[];
 }

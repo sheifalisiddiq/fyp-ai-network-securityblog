@@ -9,12 +9,12 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700">
-                <span className="text-cyan-400 font-mono text-sm font-bold">IG</span>
+                <span className="text-cyan-400 font-mono text-sm font-bold">ND</span>
               </div>
-              <span className="text-white font-bold tracking-tight">IntelliGuard</span>
+              <span className="text-white font-bold tracking-tight">NetDetect AI</span>
             </div>
             <p className="text-slate-500 text-xs font-mono uppercase tracking-widest">
-              University Capstone Project &bull; 2024
+              Project Blog &bull; {new Date().getFullYear()}
             </p>
           </div>
 
